@@ -355,6 +355,8 @@
   window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); installEvt = e; });
   if (window.matchMedia("(display-mode: standalone)").matches || navigator.standalone) { document.getElementById("installBtn").style.display = "none"; }
   if (/Android/i.test(navigator.userAgent)) { document.documentElement.classList.add("is-android"); }
+  /* service worker: lets Chrome on Android offer its own one-tap "Install app" from our button */
+  if ("serviceWorker" in navigator) { window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); }); }
   function installApp(){ if(installEvt){ installEvt.prompt(); installEvt = null; } else { document.getElementById("appSheet").classList.add("on"); } }
 </script>
 </body>
