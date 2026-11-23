@@ -46,7 +46,6 @@
   .sky-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 75%;z-index:0}
   .sky-shade{position:absolute;inset:0;z-index:1;pointer-events:none;
              background:linear-gradient(180deg,rgba(11,26,74,.32) 0%,rgba(11,26,74,0) 22%,rgba(11,26,74,0) 78%,rgba(247,242,232,.18) 100%)}
-  .skyplane{position:absolute;left:0;top:30px;width:100%;height:auto;z-index:2;pointer-events:none}
   .snd-btn{position:absolute;top:14px;right:64px;z-index:6;width:42px;height:42px;border-radius:50%;display:flex;
            align-items:center;justify-content:center;background:rgba(11,26,74,.55);border:1px solid rgba(255,255,255,.35);
            cursor:pointer;padding:0}
@@ -189,10 +188,7 @@
     <video class="sky-v" id="skyV" muted playsinline loop preload="auto" poster="../hero/rosa.jpg"
       data-hd="../hero/rosa-hd.mp4" data-sd="../hero/rosa-sd.mp4" aria-hidden="true"></video>
     <div class="sky-shade" aria-hidden="true"></div>
-    <svg class="skyplane" viewBox="0 0 390 90" aria-hidden="true">
-      <path class="march" d="M-30 70 C 80 40, 210 14, 430 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="3 7" stroke-linecap="round" opacity=".85"/>
-      <g fill="#ffffff" opacity=".95"><path d="M-9 -1.2 L4 -1.2 L9 0 L4 1.2 L-9 1.2Z M1 -1 L-4 -7 L-1 -7 L5 -1Z M1 1 L-4 7 L-1 7 L5 1Z M-8 -1 L-10 -4 L-8 -4 L-5 -1Z M-8 1 L-10 4 L-8 4 L-5 1Z"/><animateMotion dur="15s" repeatCount="indefinite" rotate="auto" path="M-30 70 C 80 40, 210 14, 430 24"/></g>
-    </svg>
+    <!-- no drawn plane over the real sky: the bird in the footage is the motion up here (CEO 2026-11-23) -->
     <div class="lang"><button id="lang-es" class="on" onclick="setLang('es')">ES</button><button id="lang-en" onclick="setLang('en')">EN</button></div>
     <button class="snd-btn" id="sndBtn" type="button" onclick="toggleSea()" aria-pressed="false" aria-label="Escuchar el mar" title="Escuchar el mar">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path id="sndGlyph" d="M3 9v6h4l5 4V5L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg></button>
@@ -279,7 +275,7 @@
     var v=document.getElementById("beachV"), c=navigator.connection||{};
     var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     v.src = (c.saveData || /2g|3g/.test(c.effectiveType||"")) ? v.dataset.sd : v.dataset.hd;
-    if(still){ document.querySelectorAll(".skyplane,.fly").forEach(function(s){ try{ s.pauseAnimations(); s.setCurrentTime(3.2); }catch(e){} }); return; }
+    if(still){ document.querySelectorAll(".fly").forEach(function(s){ try{ s.pauseAnimations(); s.setCurrentTime(3.2); }catch(e){} }); return; }
     var p=v.play(); if(p&&p.catch) p.catch(function(){});
     if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ var q=v.play(); if(q&&q.catch) q.catch(function(){}); } else v.pause(); }); }).observe(v); }
   })();
