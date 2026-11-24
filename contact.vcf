@@ -7,11 +7,13 @@ TITLE:Concierge de viaje
 TEL;TYPE=CELL,VOICE:+52 998 742 4341
 item1.URL:https://wa.me/529987424341
 item1.X-ABLabel:WhatsApp
-EMAIL;TYPE=INTERNET,WORK:valenzatravel@gmail.com
+EMAIL;TYPE=INTERNET,WORK:abraham@valenzatravel.com
 URL:https://cards.sharkitectdigital.com/abraham-valencia/v/
+item2.URL:https://valenzatravel.com/
+item2.X-ABLabel:Sitio web
 X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/valenzatravel
 ADR;TYPE=WORK:;;;Cancún;Quintana Roo;;México
-NOTE:Servicio de transporte · Hoteles · Tours y excursiones · Horario de atención 7:00 a 19:00 hrs
+NOTE:Servicio de transporte · Hoteles · Tours y excursiones · Horario de atención 9:00 a 19:00 hrs
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
  BgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2w
  BDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQk
